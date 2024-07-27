@@ -61,9 +61,10 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
-    res.locals.currUser = req.user;
+    res.locals.currUser = req.user; // This line sets currUser for use in EJS templates
     next();
 });
+
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");

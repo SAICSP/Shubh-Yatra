@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 <script>
     const mapToken= "<%= process.env.MAP_TOKEN %>";
-    const listing = <%- JSON.stringify(list) %>;
+    const listing = "<%- JSON.stringify(list) %>";
     
 
 </script>
@@ -25,7 +25,7 @@
                         <p class="card-text" ><%= list.country %></p>
                     
                 <br>
-                <% if( currUser && currUser._id.equals(list.owner._id)) { %>
+                <% if (currUser && currUser._id.equals(list.owner._id)) { %>
                 <div class="row mb-3 mt-3">
                     <div class="mb-3 col-md-4 dsflex mr-3">
                         <a href="/listings/<%= list._id %>/edit" class="btn btn-dark editlist"
