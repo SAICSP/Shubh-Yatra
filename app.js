@@ -59,11 +59,13 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
+    console.log("Current User:", req.user); // Debugging line
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
-    res.locals.currUser = req.user; // This line sets currUser for use in EJS templates
+    res.locals.currUser = req.user;
     next();
 });
+
 
 
 app.set("views", path.join(__dirname, "views"));
