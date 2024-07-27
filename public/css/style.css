@@ -1,0 +1,168 @@
+body {
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.navbar {
+    height: 5rem;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.fa-compass {
+    color: #fa424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222 !important;
+}
+
+.f-infolinks a {
+    text-decoration: none;
+    color: #000;
+}
+
+.f-infolinks a:hover {
+    text-decoration: underline;
+}
+
+.f-infolinks,
+.f-infosocials,
+.info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-infosocials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-infosocials i:hover {
+    opacity: 2.5;
+        transform: scale(1.5);
+}
+.f-info {
+    display: flex;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+}
+
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1.2rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    box-shadow: 6px 6px 10px black !important;
+}
+
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400 !important;
+}
+
+.anchorimg {
+    text-decoration: none;
+    margin-right: 0.5rem !important;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.5;
+    background-color: #fff;
+    
+}
+
+.addbtn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+.editbtn {
+    background-color: #fe424d !important;
+    border: none !important;
+    height: 50px !important;
+}
+
+.show-img {
+    height: 30vh;
+}
+
+.editlist {
+    text-decoration: none;
+    background-color: green !important;
+}
+
+.deletebtn {
+    background-color: #fe424d !important;
+    border: none !important;
+    color: black;
+}
+
+.dsflex {
+    display: flex;
+}
+
+.dsflex a {
+    margin-right: 2rem !important;
+    height: 2.2rem !important;
+}
+
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    flex-grow: 1;
+}
+
+#map {
+    height: 400px;
+    width: 80%vw;
+    margin-bottom: 2rem;
+}
+
+.up{
+    border: 2px solid black;
+        align-content: center;
+        height: 3rem;
+        border-radius: 1rem;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+        margin-left: 75rem;
+        margin-bottom: 2rem;
+}
+.up:hover{
+    background-color: magenta;
+}

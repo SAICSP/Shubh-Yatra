@@ -1,0 +1,29 @@
+<footer>
+    <div class="f-info">
+        <div class="f-infosocials">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-youtube"></i>
+            <i class="fa-brands fa-square-threads"></i>
+        </div><br>
+        <div class="info-brand">&copy;  Shubh Yatra</div>
+        <div class="f-infolinks">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="up"><i class="fa-solid fa-arrow-up"></i></div>
+    </div>
+</footer>
+<script>
+   let up = document.getElementsByClassName("up");
+    Array.from(up).forEach(element => {
+        element.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
