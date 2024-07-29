@@ -8,7 +8,7 @@
                     <img src="<%= list.image.url %>" class="card-img-top show-img" alt="...">
                     <div class="card-body">
                         <p class="card-text"><b>
-                                Owned by <b><i>@<%= list.owner.username%></i></b><br><br>
+                                Owned by <b><i>@<%= list.owner.username %></i></b><br><br>
                                 <%= list.title %>
                             </b></p>
                     </div>
@@ -24,7 +24,7 @@
                 <p class="card-text">
                     <%= list.country %>
                 </p>
-
+                <br>
                 <% if (currUser && currUser._id.equals(list.owner._id)) { %>
                     <div class="row mb-3 mt-3">
                         <div class="mb-3 col-md-4 dsflex mr-3">
@@ -38,10 +38,11 @@
                         </div>
                     </div>
                     <% } %>
-
-                        <% if(currUser) { %>
+                        <br><br>
+                        <hr>
+                        <% if (currUser) { %>
                             <h4>Leave a Review</h4>
-                            <form method="post" action="/listings/<%= list.id %>/reviews" novalidate
+                            <form method="post" action="/listings/<%= list._id %>/reviews" novalidate
                                 class="needs-validation col-8 offset-2">
                                 <div class="mb-3 mt-3">
                                     <fieldset class="starability-slot">
@@ -71,11 +72,10 @@
                                 <button class="btn btn-outline-success">Submit</button><br><br>
                             </form>
                             <% } %>
-
-                                <% if(list.reviews.length> 0) { %>
+                                <% if (list.reviews.length> 0) { %>
                                     <h4>All Reviews</h4>
                                     <div class="row">
-                                        <% for(review of list.reviews) { %>
+                                        <% for (let review of list.reviews) { %>
                                             <div class="card col-5 mb-3 ms-3">
                                                 <div class="card-body">
                                                     <h5 class="card-title">@<%= review.author.username %>
@@ -86,24 +86,22 @@
                                                         <%= review.comment %>
                                                     </p>
                                                 </div>
-                                                <form method="post"
-                                                    action="/listings/<%= list.id %>/reviews/<%= review.id %>?_method=DELETE"
-                                                    class="mb-3">
-                                                    <button class="btn btn-sm btn-danger">Delete</button>
-                                                </form>
+                                                <% if (currUser && currUser._id.equals(review.author._id)) { %>
+                                                    <form method="post"
+                                                        action="/listings/<%= list._id %>/reviews/<%= review._id %>?_method=DELETE"
+                                                        class="mb-3">
+                                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                                    </form>
+                                                    <% } %>
                                             </div>
                                             <% } %>
                                     </div>
                                     <% } %>
             </div>
-
             <div class="col-8 offset-2">
                 <h3>Where you'll be</h3>
                 <div id="map"></div>
             </div>
         </div>
-
-        <script src="/js/map.js"></script>
-        <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
-        <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet" />
     </body>
+    <script src="/js/map.js"></script>

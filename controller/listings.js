@@ -40,10 +40,11 @@ module.exports.showRoute = async (req, res) => {
         .populate("owner");
     if (!list) {
         req.flash("error", "Listing not accessible!");
-        res.redirect("/listings");
+        return res.redirect("/listings");
     }
-    res.render("listings/show", { list });
+    res.render("listings/show", { list, currUser: req.user });
 };
+
 
 module.exports.editListing = async (req, res) => {
     try {
