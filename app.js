@@ -1,6 +1,9 @@
-if (process.env.NODE_ENV !== "production") {
+try {
     require('dotenv').config();
+} catch (err) {
+    console.error("Error loading .env file:", err);
 }
+
 
 const express = require("express");
 const app = express();
