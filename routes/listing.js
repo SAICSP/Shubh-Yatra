@@ -8,26 +8,31 @@ const multer = require("multer");
 const { storage } = require("../cloudConfig");
 const upload = multer({ storage });
 
+// Index route: Display all listings
 router
     .route("/")
     .get(wrapAsync(listingController.index))
     .post(
         isLoggedIn,
-        upload.single('listing[image]'),
+        upload.single('listing[image]'),  // Ensure this field matches in the form
         validateListing,
         wrapAsync(listingController.createNewListing)
     );
 
+// Show the form to create a new listing
 router.get("/new", isLoggedIn, (req, res) => {
     res.render("listings/new");
 });
 
-router.get("/:id", isLoggedIn, wrapAsync(listingController.showRoute));
+// Show a specific listing
+router.get("/:id", wrapAsync(listingController.showRoute));
 
+// Show the form to edit a listing
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.editListing));
 
+// Update a specific listing
 router.put(
-    "/:id/update",
+    "/:id",  // Removed /update for RESTful convention
     isLoggedIn,
     isOwner,
     upload.single('listing[image]'),
@@ -35,6 +40,12 @@ router.put(
     wrapAsync(listingController.updateListing)
 );
 
-router.delete("/:id/delete", isLoggedIn, isOwner, wrapAsync(listingController.destroyListing));
+// Delete a specific listing
+router.delete(
+    "/:id",  // Removed /delete for RESTful convention
+    isLoggedIn,
+    isOwner,
+    wrapAsync(listingController.destroyListing)
+);
 
 module.exports = router;
